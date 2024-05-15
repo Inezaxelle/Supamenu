@@ -12,6 +12,7 @@ export default function HomeScreen({ navigation }) {
         title="Login"
         onPress={() => navigation.navigate('Login')}
         color="#F7941D"
+        style={styles.buttonSpace}
       />
       <Button
         title="Sign Up"
@@ -33,6 +34,9 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+  },
+  buttonSpace: {
+    marginBottom: 12,
   },
   supa: {
     color: 'white',

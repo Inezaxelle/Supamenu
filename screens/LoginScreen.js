@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
@@ -32,8 +33,8 @@ export default function LoginScreen({ navigation }) {
           <Text style={styles.menu}>Menu</Text>
         </Text>
         <View style={styles.inputContainer}>
-          <Ionicons
-            name="person-outline"
+          <MaterialCommunityIcons
+            name="email-outline"
             size={24}
             color="#222222"
             style={styles.inputIcon}
@@ -82,13 +83,13 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: "#d3d3d3",
   },
+  inputIcon: {
+    marginRight: 10,
+  },
   header: {
     flexDirection: "row",
     alignItems: "flex-start",
     marginBottom: 20,
-  },
-  inputIcon: {
-    marginRight: 10,
   },
   content: {
     justifyContent: "center",

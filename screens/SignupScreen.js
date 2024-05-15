@@ -1,17 +1,24 @@
 import React, { useState } from "react";
-import { View, Text, TextInput, StyleSheet, TouchableOpacity } from "react-native";
-import {Ionicons} from '@expo/vector-icons'
+import {
+  View,
+  Text,
+  TextInput,
+  StyleSheet,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { AntDesign } from "@expo/vector-icons";
 
 export default function SignUpScreen({ navigation }) {
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
 
   const handleSignUp = () => {
-    // Implement your signup logic here
+    console.log("name:", name);
     console.log("Email:", email);
-    console.log("Password:", password);
-    console.log("Confirm Password:", confirmPassword);
+    console.log("Phone:", phone);
     navigation.navigate("Home");
   };
 
@@ -28,23 +35,38 @@ export default function SignUpScreen({ navigation }) {
           <Text style={styles.supa}>Supa</Text>
           <Text style={styles.menu}>Menu</Text>
         </Text>
-        <TextInput
-          style={styles.input}
-          placeholder="Your Email"
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Your Email"
-          onChangeText={(text) => setPassword(text)}
-          secureTextEntry
-        />
-        <TextInput
-          style={styles.input}
-          placeholder="Password"
-          onChangeText={(text) => setConfirmPassword(text)}
-          secureTextEntry
-        />
+        <View style={styles.inputContainer}>
+          <Ionicons
+            name="person-outline"
+            size={24}
+            color="#222222"
+            style={styles.inputIcon}
+          />
+          <TextInput
+            placeholder="Full Name"
+            onChangeText={(text) => setName(text)}
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          <AntDesign name="phone" size={24} color="#222222" style={styles.inputIcon} />
+          <TextInput
+            placeholder="Phone Number"
+            onChangeText={(text) => setPhone(text)}
+            secureTextEntry
+          />
+        </View>
+        <View style={styles.inputContainer}>
+          <MaterialCommunityIcons
+            name="email-outline"
+            size={24}
+            color="#222222"
+            style={styles.inputIcon}
+          />
+          <TextInput
+            placeholder="Your Email"
+            onChangeText={(text) => setEmail(text)}
+          />
+        </View>
         <TouchableOpacity style={styles.button} onPress={handleSignUp}>
           <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
@@ -82,12 +104,18 @@ const styles = StyleSheet.create({
     zIndex: 1,
     color: "#222222",
   },
-  input: {
+  inputContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 20,
     width: "80%",
     padding: 10,
     marginBottom: 20,
     borderWidth: 1,
     borderColor: "#d3d3d3",
+  },
+  inputIcon: {
+    marginRight: 10,
   },
   button: {
     backgroundColor: "#F7941D",
